@@ -6,13 +6,17 @@
 # TACO REST API
 Rest Api for "Tabela Brasileira de Composição de Alimentos" - TACO
 
-## DATABASE DOCUMENTATION
+## DOCUMENTATION
 
 The database used is MariaDB, stored locally. 
 
-### TABLES
+## Endpoint: `GET /items/search/:name`
 
-#### items table 
+### Description
+This endpoint allows users to search for a taco table item by its name. The `name` parameter is passed in the URL.
+
+### Result
+The result is a JSON response containing the following fields:
 
 | Field       | Type         | Null | Key | Default | Extra |
 |-------------|--------------|------|-----|---------|-------|
@@ -40,7 +44,20 @@ The database used is MariaDB, stored locally.
 | niacin      | float        | YES  |     | 0       |       |
 | vitamin_c   | float        | YES  |     | 0       |       |
 
-#### public table
+# API Documentation
+
+## Endpoint: `POST /public/create`
+
+### Description
+This endpoint allows users to create a new public item by sending the required data in the request body.
+
+### Request
+
+#### Headers
+- `Content-Type: application/json`
+
+#### Body Parameters
+The request body must be a JSON object containing the following fields:
 
 | Field    | Type         | Null | Key | Default | Extra          |
 |----------|--------------|------|-----|---------|----------------|
@@ -51,3 +68,8 @@ The database used is MariaDB, stored locally.
 | fats     | float        | NO   |     | NULL    |                |
 | carbs    | float        | NO   |     | NULL    |                |
 | fibers   | float        | YES  |     | 0       |                |
+
+## Endpoint: `GET /public/search/:name`
+
+### Description
+This endpoint allows users to search for a public item by its name. The `name` parameter is passed in the URL.
